@@ -1,12 +1,10 @@
-#  Group User  REST aplication
+#  Group User REST application
 
-Aplikacja ORM z dwoma obiektami User, Group w relacji  wiele do wielu. Endpointy  REST z operacjami CRUD i wyświetleniem powiązancyh obiektów.
+Aplikacja ORM z dwoma obiektami User, Group w relacji  wiele do wielu. Endpointy  REST z operacjami CRUD i wyświetleniem powiązanych obiektów.
 
 ### Użyte technologie:
-* Python 3.6
+* Python 3.5.3
 * Django 2.1
-* PostgreSQL 9.6.10
-* JavaScript ES6
 * Django Rest Framework 3.8.2 **http://www.django-rest-framework.org/**
 ## Instalacja projektu
 Zalecam posiadać na komputerze takie same wersje użytych technologi. <br />
