@@ -1,22 +1,16 @@
-"""mysite URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from . import views
 from django.urls import path
+from rest_framework.schemas import get_schema_view
+
+schema_view = get_schema_view(title='Users and Groups API')
 
 urlpatterns = [
-    path('group', views.GroupAPIView.as_view(), name='group-create'),
-    path('group/<int:pk>', views.GroupRudView.as_view(), name='group-rud'),
+    path('', views.api_root),
+    path('schema/', schema_view),
+    path('group/', views.GroupList.as_view(), name='groupList'),
+    path('group/<int:pk>/', views.GroupItem.as_view(), name='groupItem'),
+    path('group/<int:pk>/users/', views.GroupItemWithUsers.as_view(), name='groupItemWithUsers'),
+    path('user/', views.UserList.as_view(), name='userList'),
+    path('user/<int:pk>/', views.UserItem.as_view(), name='userItem'),
+    path('user/<int:pk>/groups/', views.UserItemWithGroups.as_view(), name='userItemWithGroups'),
 ]

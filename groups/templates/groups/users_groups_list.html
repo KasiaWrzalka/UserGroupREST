@@ -2,12 +2,14 @@
 
 {% block content %}
         <h1>Lista grup:</h1>
-        <div class="content container">
+    <p>Aby stworzyć nową grupę: <a href="/group">Create APIView</a><p>
+    <div class="content container">
     <div class="row">
         <div class="col-md-8">
             {% for group in groups %}
                 <div class="post">
-                    <h3><a href="">{{ group.name }}</a></h3>
+                    <h2>{{ group.name }}</h2>
+                    <p>Aby wykonać operacje RUD na grupie "{{group.name}}": <a href="/group/{{group.pk}}">RUD APIView</a></p>
                 </div>
             {% endfor %}
         </div>
@@ -15,14 +17,16 @@
 </div>
 
         <h1>Lista użytkowników:</h1>
+        <p>Aby stworzyć nowego użytkownika: <a href="/user">Create APIView</a><p>
         <div class="content container">
     <div class="row">
         <div class="col-md-8">
             {% for user in users %}
                 <div class="post">
-                    <h3><a href="">{{ user.username }}</a></h3>
+                    <h3>{{ user.username }}</h3>
                     <p>{% if user.first_name is not null %}{{ user.first_name }}{% endif %}
                         {% if user.last_name %}{{ user.last_name }}{% endif %}</p>
+                    <p>Aby wykonać operacje RUD na użytkowniku "{{user.username}}": <a href="/user/{{user.pk}}">RUD APIView</a></p>
                 </div>
             {% endfor %}
         </div>
